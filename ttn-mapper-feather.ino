@@ -355,10 +355,10 @@ void loop() {
       Serial.print(16000*sleepcycles);
       Serial.println(F("ms"));
     #endif
-    digitalWrite(gpssleep_pin, LOW);
+    digitalWrite(gpssleep_pin, HIGH);
     for (int i=0;i<sleepcycles;i++) {
       int sleepMS = Watchdog.sleep(16000); // sleep for 16 seconds per sleepcycle
     }
-    digitalWrite(gpssleep_pin, HIGH);
+    digitalWrite(gpssleep_pin, LOW);
   }
 }
