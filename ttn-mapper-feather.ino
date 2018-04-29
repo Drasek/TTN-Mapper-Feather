@@ -70,6 +70,7 @@ const uint8_t battery_pin = A7;
 
 // LoRaWAN Sleep / Join variables
 int sleepcycles = 1;  // every sleepcycle will last 16 secs, total sleeptime will be sleepcycles * 16 sec
+const uint8_t gpssleep_pin = 12;
 bool joined = false;
 bool sleeping = false;
 
@@ -332,6 +333,9 @@ void setup() {
   os_setCallback(&initjob, initfunc);
   LMIC_reset();
 
+  // turning GPS on
+  pinMode(gpssleep_pin, OUTPUT);
+  digitalWrite(gpssleep_pin, LOW);
   // initialize Serial1 for GPS
   Serial1.begin(9600);
 }
@@ -351,8 +355,10 @@ void loop() {
       Serial.print(16000*sleepcycles);
       Serial.println(F("ms"));
     #endif
+    digitalWrite(gpssleep_pin, LOW);
     for (int i=0;i<sleepcycles;i++) {
       int sleepMS = Watchdog.sleep(16000); // sleep for 16 seconds per sleepcycle
     }
+    digitalWrite(gpssleep_pin, HIGH);
   }
 }
