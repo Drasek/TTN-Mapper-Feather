@@ -1,12 +1,8 @@
 /*******************************************************************************
- * ttn-mapper for Adafruit Feather M0 LoRa + Feather Ultimate GPS
+ * ttn-mapper-feather for Adafruit Feather M0 LoRa + Ultimate GPS FeatherWing
  * 
  * Code adapted from the Node Building Workshop using a modified LoraTracker board
- * 
  * Copyright (c) 2015 Thomas Telkamp and Matthijs Kooijman
- * 
- * This code runs on an Adafruit Feather M0 with LoRa, status displayed on 
- * Adafruit OLED FeatherWing
  * 
  * This uses OTAA (Over-the-air activation), in the ttn_secrets.h a DevEUI,
  * a AppEUI and a AppKEY is configured, which are used in an over-the-air
@@ -45,10 +41,6 @@
  * Licence:
  * GNU Affero General Public License v3.0
  * 
- * Permission is hereby granted, free of charge, to anyone
- * obtaining a copy of this document and accompanying files,
- * to do whatever they want with them without any restriction,
- * including, but not limited to, copying, modification and redistribution.
  * NO WARRANTY OF ANY KIND IS PROVIDED.
  *******************************************************************************/
 #include <lmic.h>
