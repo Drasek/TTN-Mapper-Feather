@@ -55,7 +55,6 @@
 //#define DEBUG
 
 // GPS variables
-static const uint8_t RXPin = 9, TXPin = 8;
 static const uint32_t GPSBaud = 9600;
 double geoLng = 0;
 double geoLat = 0;
@@ -337,7 +336,7 @@ void setup() {
   pinMode(gpssleep_pin, OUTPUT);
   digitalWrite(gpssleep_pin, LOW);
   // initialize Serial1 for GPS
-  Serial1.begin(9600);
+  Serial1.begin(GPSBaud);
 }
 
 void loop() {
